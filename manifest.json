@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Currency Converter",
+  "version": "1.0",
+  "description": "Convert selected currency amounts on web pages",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.ts"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  }
+}
